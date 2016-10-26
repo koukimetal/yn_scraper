@@ -1,0 +1,11 @@
+version: '2'
+services:
+  web:
+    build: .
+    command: python /webapp/yn_scraper.py
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./webapp:/webapp
+    extra_hosts:
+      - "debug_host:${DOCKER0_IP}" # This is for debugger
